@@ -1,0 +1,46 @@
+{
+ "case": "external-task replication (open-ended generation; biased arm = expand with more detail)",
+ "deviation": "qwen3.7-plus unavailable (DashScope Arrearage); substituted gpt-5.4-mini via Youle relay; see evidence/deviation_external_task_20260809.md",
+ "models": {
+  "deepseek-v4-flash": {
+   "Append-Only": {
+    "gamma": 2.7285,
+    "n_seeds": 10
+   },
+   "Summarization": {
+    "gamma": 5.4474,
+    "n_seeds": 10
+   },
+   "RAG+Filter": {
+    "gamma": 7.2735,
+    "n_seeds": 10
+   },
+   "Summ_minus_Append": {
+    "diff": 2.719,
+    "p_raw": 0.0,
+    "n": 10,
+    "direction": "Summ-higher"
+   }
+  },
+  "gpt-5.4-mini": {
+   "Append-Only": {
+    "gamma": 6.9915,
+    "n_seeds": 10
+   },
+   "Summarization": {
+    "gamma": 6.9448,
+    "n_seeds": 10
+   },
+   "RAG+Filter": {
+    "gamma": 6.7379,
+    "n_seeds": 10
+   },
+   "Summ_minus_Append": {
+    "diff": -0.0466,
+    "p_raw": 0.9237,
+    "n": 10,
+    "direction": "Summ-lower"
+   }
+  }
+ }
+}

@@ -11,6 +11,7 @@ Repository for the paper "Memory-Architecture Bias Propagation under Controlled 
   - `verify_p5.py` — full verification suite
   - `protocol.md` — executed protocol (includes deviation record)
   - `reproduce_peer/`, `scoring/`, `tests/` — condition registry, gamma monitor, unit tests
+- `evidence/` — archived per-cell logs, recomputed tables, and the 2026-08-09 external-task replication (open-ended generation; deepseek-v4-flash reversal +2.72, p<0.0001; gpt-5.4-mini null):
 - `evidence/` — archived per-cell logs and recomputed tables:
   - `round4_live.zip` (1,080 per-cell logs: v4-pro + v4-flash, 36 cells x 30 seeds)
   - `r1_v4chat_dose_response_per_seed.json` (90 per-seed records)
