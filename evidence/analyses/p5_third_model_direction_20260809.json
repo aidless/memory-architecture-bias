@@ -1,0 +1,29 @@
+{
+ "case": "R1 family-significant contrast (Summ vs Append @ p=0.8) across models",
+ "rows": {
+  "R1_V4Chat": {
+   "diff": -0.0727,
+   "p_raw": 0.0002,
+   "n": 10,
+   "direction": "Summ-lower"
+  },
+  "Qwen3.7Plus": {
+   "diff": -0.0969,
+   "p_raw": 0.4106,
+   "n": 10,
+   "direction": "Summ-lower"
+  },
+  "deepseek-v4-pro": {
+   "diff": 0.0007,
+   "p_raw": 0.9944,
+   "n": 30,
+   "direction": "Summ-higher"
+  },
+  "deepseek-v4-flash": {
+   "diff": 0.2024,
+   "p_raw": 0.0001,
+   "n": 30,
+   "direction": "Summ-higher"
+  }
+ }
+}

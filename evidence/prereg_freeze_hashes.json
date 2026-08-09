@@ -1,0 +1,31 @@
+{
+ "frozen_at": "2026-08-07",
+ "note": "Frozen hashes of the delivered P5 evidence files (frozen == delivered).",
+ "files": {
+  "OSF_registration_P5_bc.md": {
+   "sha256": "9540E2D372E8BA9CEFEA72107F22D52C2F2BA522924A3B395734BE3D75BAD6DD",
+   "size": 3649
+  },
+  "PREREG_05_P5_construct_grid.md": {
+   "sha256": "4B1B0CA8E9CD0223EB86CCA8544687F7CA00DAC3070CBF86208C398286EE24E7",
+   "size": 2636
+  },
+  "PREREG_03_P3_seed_expansion_heldout.md": {
+   "sha256": "BADFD6007209DB2A5FEB7DC183921413F5212F46909E8EB25C033E44EC3E2292",
+   "size": 2301
+  },
+  "runbook_p5_grid_completion_20260806.md": {
+   "sha256": "9DBAE5F0130339F6442FEBF0A9B036246208391F0E05E0DA403DC5B27BADB7C9",
+   "size": 6328
+  },
+  "model_decision_20260806.md": {
+   "sha256": "4521872302AF205236FDFD079B5F76C25431E473931D0F2E56EBCC52F23264A8",
+   "size": 1590
+  },
+  "recomputed_cell_means_FIXED.json": {
+   "sha256": "CF8EE5460D18F532269485B20CCFECDE3D05EA03D069360EF049A38A259FF6DC",
+   "size": 4741
+  }
+ },
+ "deviation": "v4-flash 18-cell grid (T=10) executed instead of planned V4-Chat 9-cell T=30; runbook and OSF form record the deviation and outcomes."
+}

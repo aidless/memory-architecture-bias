@@ -1,0 +1,51 @@
+{
+ "case": "deepseek-v4-pro cross-run architecture ordering drift @ p=0.8 (Round-3 10-seed vs Round-4 30-seed)",
+ "rows": {
+  "length": {
+   "round3_10seed": {
+    "Append-Only": 0.5192,
+    "Summarization": 0.7582,
+    "RAG+Filter": 0.6691
+   },
+   "round3_order": [
+    "Append-Only",
+    "RAG+Filter",
+    "Summarization"
+   ],
+   "round4_30seed": {
+    "Append-Only": 0.5726,
+    "Summarization": 0.5732,
+    "RAG+Filter": 0.3475
+   },
+   "round4_order": [
+    "RAG+Filter",
+    "Append-Only",
+    "Summarization"
+   ],
+   "order_changed": true
+  },
+  "authority": {
+   "round3_10seed": {
+    "Append-Only": 0.8223,
+    "Summarization": 0.6613,
+    "RAG+Filter": 0.8178
+   },
+   "round3_order": [
+    "Summarization",
+    "RAG+Filter",
+    "Append-Only"
+   ],
+   "round4_30seed": {
+    "Append-Only": 0.5073,
+    "Summarization": 0.5764,
+    "RAG+Filter": 0.3841
+   },
+   "round4_order": [
+    "RAG+Filter",
+    "Append-Only",
+    "Summarization"
+   ],
+   "order_changed": true
+  }
+ }
+}

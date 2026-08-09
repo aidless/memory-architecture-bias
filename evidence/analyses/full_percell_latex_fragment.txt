@@ -1,0 +1,81 @@
+\section{Complete per-Cell $\Gamma_{\text{temporal}}$ Summary}
+\label{sec:supp-full-percell}
+All archived per-cell means reported in this paper are reproduced here from the evidence package (\texttt{r1\_v4chat\_dose\_response\_per\_seed.json}, \texttt{recomputed\_cell\_means\_FIXED.json}, \texttt{p5\_grid\_v4flash\_20260807.json}). The generating script is \texttt{evidence/scripts/generate\_full\_percell\_table\_20260808.py}; its output is \texttt{analyses/full\_percell\_table\_20260808.json}.
+
+\begin{table}[htbp]
+\centering
+\caption{R1 V4-Chat dose-response, length bias (30 rounds, $n{=}10$ seeds; the same cells as Table~\ref{tab:dose_response}, with standard deviations).}
+\label{tab:supp-full-r1}
+\small
+\begin{tabular}{lllccc}
+\toprule
+Bias & Architecture & $p$ & Mean & SD & $n$ \\
+\midrule
+length & Append-Only & 0.2 & 0.420 & 0.142 & 10 \\
+length & Append-Only & 0.5 & 0.385 & 0.088 & 10 \\
+length & Append-Only & 0.8 & 0.266 & 0.055 & 10 \\
+length & RAG+Filter & 0.2 & 0.303 & 0.098 & 10 \\
+length & RAG+Filter & 0.5 & 0.315 & 0.092 & 10 \\
+length & RAG+Filter & 0.8 & 0.246 & 0.046 & 10 \\
+length & Summarization & 0.2 & 0.413 & 0.121 & 10 \\
+length & Summarization & 0.5 & 0.317 & 0.100 & 10 \\
+length & Summarization & 0.8 & 0.194 & 0.065 & 10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Round-3 cells at $p{=}0.8$ (deepseek-v4-pro and qwen3.7-plus, $n{=}10$ seeds; the Qwen length/authority columns repeat Table~\ref{tab:qwen} and Table~\ref{tab:authority}).}
+\label{tab:supp-full-round3}
+\small
+\begin{tabular}{lllccc}
+\toprule
+Bias & Architecture & $p$ & Mean & SD & $n$ \\
+\midrule
+authority & Append-Only & 0.8 & 0.822 & 0.693 & 10 \\
+length & Append-Only & 0.8 & 0.519 & 0.200 & 10 \\
+authority & RAG+Filter & 0.8 & 0.818 & 0.393 & 10 \\
+length & RAG+Filter & 0.8 & 0.669 & 0.333 & 10 \\
+authority & Summarization & 0.8 & 0.661 & 0.237 & 10 \\
+length & Summarization & 0.8 & 0.758 & 0.420 & 10 \\
+authority & Append-Only & 0.8 & 0.802 & 0.329 & 10 \\
+length & Append-Only & 0.8 & 0.627 & 0.270 & 10 \\
+authority & RAG+Filter & 0.8 & 0.818 & 0.617 & 10 \\
+length & RAG+Filter & 0.8 & 0.752 & 0.541 & 10 \\
+authority & Summarization & 0.8 & 0.544 & 0.162 & 10 \\
+length & Summarization & 0.8 & 0.530 & 0.309 & 10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Rebuilt deepseek-v4-flash grid, 18 cells ($T{=}10$, $n{=}10$ seeds; family audits reported in \S\ref{sec:limitations}).}
+\label{tab:supp-full-v4flash}
+\small
+\begin{tabular}{lllccc}
+\toprule
+Bias & Architecture & $p$ & Mean & SD & $n$ \\
+\midrule
+authority & Append-Only & 0.2 & 0.678 & 0.605 & 10 \\
+authority & Append-Only & 0.5 & 0.521 & 0.264 & 10 \\
+authority & Append-Only & 0.8 & 0.853 & 0.737 & 10 \\
+length & Append-Only & 0.2 & 0.519 & 0.260 & 10 \\
+length & Append-Only & 0.5 & 0.790 & 0.342 & 10 \\
+length & Append-Only & 0.8 & 2.385 & 5.000 & 10 \\
+authority & RAG+Filter & 0.2 & 0.831 & 0.862 & 10 \\
+authority & RAG+Filter & 0.5 & 0.987 & 0.715 & 10 \\
+authority & RAG+Filter & 0.8 & 0.607 & 0.505 & 10 \\
+length & RAG+Filter & 0.2 & 0.999 & 0.710 & 10 \\
+length & RAG+Filter & 0.5 & 0.786 & 0.344 & 10 \\
+length & RAG+Filter & 0.8 & 0.909 & 0.372 & 10 \\
+authority & Summarization & 0.2 & 0.575 & 0.372 & 10 \\
+authority & Summarization & 0.5 & 0.442 & 0.206 & 10 \\
+authority & Summarization & 0.8 & 0.521 & 0.242 & 10 \\
+length & Summarization & 0.2 & 0.580 & 0.301 & 10 \\
+length & Summarization & 0.5 & 0.946 & 0.942 & 10 \\
+length & Summarization & 0.8 & 0.974 & 1.236 & 10 \\
+\bottomrule
+\end{tabular}
+\end{table}
