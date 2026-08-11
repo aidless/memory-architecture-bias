@@ -7,7 +7,7 @@ for Bias-Resistant Multi-Agent LLM Systems** submission. It is written for
 recompute the metrics, and compare the outputs to the paper-level claims.
 
 Code, audit artifacts, and lightweight analysis scripts are referenced at
-`anonymous repository (available at acceptance)` (MIT license). The local
+`https://anonymous.4open.science/r/memory-architecture-bias-F720/` (MIT license). The local
 companion implementation should expose `reproduce_peer/seed_lock.py`,
 `reproduce_peer/run_protocol.py`, and `scoring/gamma_monitor.py`. **Do not
 hard-code API keys in any file** — read them from environment variables
@@ -541,7 +541,7 @@ where `n=3` seeds precludes tight CIs). Any cell whose point estimate falls
 
 ## 10. Practical reproduction checklist
 
-1. `git clone anonymous repository (available at acceptance)`
+1. `git clone https://anonymous.4open.science/r/memory-architecture-bias-F720/`
 2. `pip install -r requirements.txt`  (numpy, scipy, scikit-learn, requests, datasets, matplotlib)
 3. `export DEEPSEEK_API_KEY=...`  and `export QWEN_API_KEY=...`
 4. `python reproduce_peer/load_corpus.py` → `data/passages.jsonl`

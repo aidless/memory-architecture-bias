@@ -95,26 +95,26 @@ def sha256(path):
         for chunk in iter(lambda: f.read(1 << 20), b""): h.update(chunk)
     return h.hexdigest().upper()
 
-F10 = r"F:\Research\PAPER1_CONSOLIDATED\joint_full_F_v10_results.json"
-CELLS = r"F:\Research\PAPER5_CONSOLIDATED\outputs\recomputed_cell_means_FIXED.json"
+F10 = r"<ARCHIVE_ROOT>\PAPER1_CONSOLIDATED\joint_full_F_v10_results.json"
+CELLS = r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\recomputed_cell_means_FIXED.json"
 INPUTS = {
     "joint_F_v10": F10,
     "p5_cells": CELLS,
-    "e4_n15": r"F:\Research\experiments\e4_n15_results.json",
-    "ece_calibration": r"F:\Research\experiments\ece_calibration.json",
-    "mm_multi": r"F:\Research\experiments\mm_epc_multi_seed_final.json",
-    "mm_multi_ds": r"F:\Research\experiments\mm_epc_multi_seed_ds_final.json",
-    "mm_ablation_max": r"F:\Research\experiments\mm_epc_ablation_max.json",
-    "mm_qwen37": r"F:\Research\experiments\mm_epc_qwen37_final.json",
-    "gamma_jsd": r"F:\Research\experiments\gamma_jsd_correlation.json",
-    "within_condition": r"F:\Research\tmlr_p13\within_condition_results.json",
-    "canonical_v5": r"F:\Research\CALIBRATION_EFFECTS\canonical_results_v5.json",
-    "p5_protocol_run": r"F:\Research\PAPER5_CONSOLIDATED\outputs\protocol_run.jsonl",
-    "p5_protocol_summary": r"F:\Research\PAPER5_CONSOLIDATED\outputs\protocol_run_summary.json",
-    "p5_meta3": r"F:\Research\PAPER5_CONSOLIDATED\outputs\meta_analysis_three_rounds.csv",
-    "p5_meta_trend": r"F:\Research\PAPER5_CONSOLIDATED\outputs\meta_analysis_trend.csv",
-    "p5_theta": r"F:\Research\PAPER5_CONSOLIDATED\outputs\theta_sweep_summary.json",
-    "p5_judge": r"F:\Research\PAPER5_CONSOLIDATED\outputs\external_judge_summary.json",
+    "e4_n15": r"<ARCHIVE_ROOT>\experiments\e4_n15_results.json",
+    "ece_calibration": r"<ARCHIVE_ROOT>\experiments\ece_calibration.json",
+    "mm_multi": r"<ARCHIVE_ROOT>\experiments\mm_epc_multi_seed_final.json",
+    "mm_multi_ds": r"<ARCHIVE_ROOT>\experiments\mm_epc_multi_seed_ds_final.json",
+    "mm_ablation_max": r"<ARCHIVE_ROOT>\experiments\mm_epc_ablation_max.json",
+    "mm_qwen37": r"<ARCHIVE_ROOT>\experiments\mm_epc_qwen37_final.json",
+    "gamma_jsd": r"<ARCHIVE_ROOT>\experiments\gamma_jsd_correlation.json",
+    "within_condition": r"<ARCHIVE_ROOT>\tmlr_p13\within_condition_results.json",
+    "canonical_v5": r"<ARCHIVE_ROOT>\CALIBRATION_EFFECTS\canonical_results_v5.json",
+    "p5_protocol_run": r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\protocol_run.jsonl",
+    "p5_protocol_summary": r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\protocol_run_summary.json",
+    "p5_meta3": r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\meta_analysis_three_rounds.csv",
+    "p5_meta_trend": r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\meta_analysis_trend.csv",
+    "p5_theta": r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\theta_sweep_summary.json",
+    "p5_judge": r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\external_judge_summary.json",
 }
 for k, v in INPUTS.items():
     assert os.path.exists(v), f"missing input {k}: {v}"
@@ -256,7 +256,7 @@ for paper_rows in ledger.values():
 manifest = {}
 for k, path in INPUTS.items():
     manifest[k] = {"path": path, "sha256": sha256(path), "size": os.path.getsize(path)}
-REV3 = r"C:\Users\Administrator\AppData\Roaming\haolo_desktop\thread-groups\default\outputs\Five_Papers_MultiReview_Revision3_2026-08-06"
+REV3 = r"<WORKSPACE>\thread-groups\default\outputs\Five_Papers_MultiReview_Revision3_2026-08-06"
 for p in ["PAPER1", "PAPER2", "PAPER3", "PAPER4", "PAPER5"]:
     tex = os.path.join(REV3, p, "source", "main.tex")
     pdf = os.path.join(REV3, p, "main.pdf")

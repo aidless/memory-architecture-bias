@@ -2,14 +2,14 @@
 import os, sys, json, math, re, statistics as st
 from pathlib import Path
 from itertools import combinations
-sys.path.insert(0, r"F:\Research\PAPER5_CONSOLIDATED")
+sys.path.insert(0, r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED")
 import numpy as np
 from scipy.stats import wasserstein_distance
 
 BASE = os.environ["BASE"]
 A = os.path.join(BASE, "analyses")
-R3 = Path(r"C:\Users\Administrator\AppData\Roaming\haolo_desktop\thread-groups\default\outputs\paper5_round3_live_logs_20260713")
-CELLS = json.load(open(r"F:\Research\PAPER5_CONSOLIDATED\outputs\recomputed_cell_means_FIXED.json", encoding="utf-8"))
+R3 = Path(r"<WORKSPACE>\thread-groups\default\outputs\paper5_round3_live_logs_20260713")
+CELLS = json.load(open(r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\recomputed_cell_means_FIXED.json", encoding="utf-8"))
 
 def gamma_per_file(fp):
     rows = []

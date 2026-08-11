@@ -13,7 +13,7 @@ Usage:
     python run_protocol.py --fresh --deepseek-key $DEEPSEEK_API_KEY --qwen-key $QWEN_API_KEY
 
 The script delegates to two pre-existing live harnesses under
-``tmp/windows/w1-paper5/`` (Qwen n=10 live + DeepSeek authority
+``tmp<LOCAL_TMP>/windows/w1-paper5/`` (Qwen n=10 live + DeepSeek authority
 parallel), which were the original sources of the data in
 ``data/logs/``. The harness logic lives there; this file is a
 spec-locked entry point that:
@@ -48,9 +48,9 @@ from reproduce_peer.seed_lock import seed_for  # noqa: E402
 from scoring import gamma_temporal, gamma_content, gamma_retrieval, ece  # noqa: E402
 
 LOG_ROOT = ROOT / "tmp" / "windows" / "w1-paper5" / "data" / "logs"
-ALT_LOG_ROOT = Path(r"C:\Users\Administrator\cow\tmp\windows\w1-paper5\data\logs")
+ALT_LOG_ROOT = Path(r"<LOCAL_TMP>\windows\w1-paper5\data\logs")
 ROUND3_LOG_ROOT = Path(
-    r"C:\Users\Administrator\AppData\Roaming\haolo_desktop\thread-groups\default\outputs\paper5_round3_live_logs_20260713"
+    r"<WORKSPACE>\thread-groups\default\outputs\paper5_round3_live_logs_20260713"
 )
 OUTPUT_DIR = ROOT / "outputs"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

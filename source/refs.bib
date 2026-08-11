@@ -1,0 +1,430 @@
+% References for PAPER5 — Memory Architectures for Bias-Resistant Multi-Agent LLM Systems
+% Skeleton entries — VERIFY EACH before submission.
+%
+% MUST-CITE from novelty audit 2026-07-08:
+%   rethowling_how_to_remember_2026 — direct overlap (TMLR 2605.19952)
+%   dynamic_agent_skills_2026       — full survey available locally
+%
+% Companion papers (liu2026*) — author updated to Zhang, Yuhao (OpenReview
+% metadata for the author's own anonymous TMLR submissions; double-check
+% before camera-ready).
+
+% ============================================================================
+% Public literature — SKELETON entries, verify title/year/venue before submit.
+% ============================================================================
+
+@article{brown2020language,
+  author  = {Brown, Tom B. and Mann, Benjamin and Ryder, Nick and Subbiah, Melanie and Kaplan, Jared and Dhariwal, Prafulla and Neelakantan, Arvind and Shyam, Pranav and Sastry, Girish and Askell, Amanda and others},
+  title   = {Language Models Are Few-Shot Learners},
+  journal = {Advances in Neural Information Processing Systems},
+  year    = {2020},
+
+}
+
+@article{touvron2023llama,
+  author  = {Touvron, Hugo and Lavril, Thibaut and Izacard, Gautier and Martinet, Xavier and Lachaux, Marie-Anne and Lacroix, Timoth{\'e}e and Rozi{\`e}re, Baptiste and Goyal, Naman and Hambro, Eric and Azhar, Faisal and others},
+  title   = {{LLaMA}: Open and Efficient Foundation Language Models},
+  journal = {arXiv preprint arXiv:2302.13971},
+  year    = {2023},
+
+}
+
+@article{zhao2023survey,
+  author  = {Zhao, Wayne Xin and Zhou, Kun and Li, Junyi and Tang, Tianyi and Xia, Ji and Zeng, Yupeng and Lv, Chong and Feng, Shaowei and others},
+  title   = {A Survey of Large Language Models},
+  journal = {arXiv preprint arXiv:2303.18223},
+  year    = {2023},
+
+}
+
+@article{du2024improving,
+  author  = {Du, Yilun and Li, Shikun and Torralba, Antonio and Tenenbaum, Joshua B. and Mordatch, Igor},
+  title   = {Improving Factuality and Reasoning in Language Models through Multiagent Debate},
+  journal = {arXiv preprint},
+  year    = {2024},
+
+}
+
+@article{li2023camel,
+  author  = {Li, Guohao and Hammerschmidt, Charles and Roumeliotis, Ken and Liu, Haoming and Qi, Xudong and others},
+  title   = {CAMEL: Communicative Agents for "{Mind}" Exploration of Large Scale Language Model Society},
+  journal = {arXiv preprint arXiv:2303.17760},
+  year    = {2023},
+
+}
+
+@article{liang2023multiagent,
+  author  = {Liang, Tian and He, Zhiwei and Tan, Chongxuan and Chen, Simin and others},
+  title   = {Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate},
+  journal = {arXiv preprint},
+  year    = {2023},
+
+}
+
+@inproceedings{park2023generative,
+  author    = {Park, Joon Sung and O'Brien, Joseph C. and Cai, Carrie J. and Morris, Meredith Ringel and Liang, Percy and Bernstein, Michael S.},
+  title     = {Generative Agents: Interactive Simulacra of Human Behavior},
+  booktitle = {Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology},
+  year      = {2023},
+
+}
+
+@article{kaplan2020scaling,
+  author  = {Kaplan, Jared and McCandlish, Sam and Henighan, Tom and Brown, Tom B. and Chess, Benjamin and Child, Rewon and Gray, Scott and Radford, Alec and Wu, Jeffrey and Amodei, Dario},
+  title   = {Scaling Laws for Neural Language Models},
+  journal = {arXiv preprint arXiv:2001.08361},
+  year    = {2020},
+
+}
+
+@article{wei2022emergent,
+  author  = {Wei, Jason and Tay, Yi and Bommasani, Rishi and Raffel, Colin and Zoph, Barret and Borgeaud, Sebastian and Yogatama, Dani and Bosma, Maarten and Zhou, Denny and Metzler, Donald and others},
+  title   = {Emergent Abilities of Large Language Models},
+  journal = {Transactions on Machine Learning Research},
+  year    = {2022},
+
+}
+
+@article{wei2022chain,
+  author  = {Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and Ichter, Brian and Xia, Fei and Chi, Ed H. and Le, Quoc V. and Zhou, Denny},
+  title   = {Chain-of-Thought Prompting Elicits Reasoning in Large Language Models},
+  journal = {Advances in Neural Information Processing Systems},
+  year    = {2022},
+
+}
+
+@article{ouyang2022training,
+  author  = {Ouyang, Long and Wu, Jeff and Jiang, Xu and Almeida, Diogo and Wainwright, Carroll L. and Mishkin, Pamela and Zhang, Chong and Agarwal, Sandhini and Slama, Katarina and Ray, Alex and others},
+  title   = {Training Language Models to Follow Instructions with Human Feedback},
+  journal = {Advances in Neural Information Processing Systems},
+  year    = {2022},
+
+}
+
+@article{christiano2017deep,
+  author  = {Christiano, Paul F. and Leike, Jan and Brown, Tom B. and Martic, Miljan and Legg, Shane and Amodei, Dario},
+  title   = {Deep Reinforcement Learning from Human Preferences},
+  journal = {Advances in Neural Information Processing Systems},
+  year    = {2017},
+
+}
+
+@article{lee2023rlaif,
+  author  = {Lee, Harrison and Phatale, Siam and Mansoor, Hassan and Lu, Kellie and Mesnard, Tom and Bishop, Colton and Carbune, Victor and Rastogi, Abhinav},
+  title   = {{RLAIF}: Scaling Reinforcement Learning from Human Feedback with {AI} Feedback},
+  journal = {arXiv preprint},
+  year    = {2023},
+
+}
+
+@article{bai2022constitutional,
+  author  = {Bai, Yuntao and Kadavath, Saurav and Kundu, Sandipan and Askell, Amanda and Kernion, Jacob and Jones, Andy and Chen, Anna and Goldie, Anna and Mirhoseini, Azalia and McKinnon, Cameron and others},
+  title   = {Constitutional {AI}: Harmlessness from {AI} Feedback},
+  journal = {arXiv preprint arXiv:2212.08073},
+  year    = {2022},
+
+}
+
+@article{packer2023memgpt,
+  author  = {Packer, Charles and Wooders, Sally and Lin, Kelvin and Fang, Vivian and Shroff, Shishir G. and Koyejo, Sanmi and Livescu, Karen},
+  title   = {MemGPT: Towards Long-Term Memory in {LLM}-Based Agents},
+  journal = {arXiv preprint},
+  year    = {2023},
+
+}
+
+@article{lewis2020rag,
+  author  = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K{\"u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt{\"a}schel, Tim and others},
+  title   = {Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks},
+  journal = {Advances in Neural Information Processing Systems},
+  year    = {2020},
+
+}
+
+@article{izacard2022fusion,
+  author  = {Izacard, Gautier and Caron, Marie and Hosseini, Lucas and Riedel, Sebastian and Szlam, Aurelien and Grave, Edouard},
+  title   = {Unsupervised Dense Information Retrieval with Contrastive Learning},
+  journal = {Transactions on Machine Learning Research},
+  year    = {2022},
+
+}
+
+@article{asai2023selfrag,
+  author  = {Asai, Akari and Wu, Zeqiu and Wang, Yizhong and Sil, Avirup and Hajishirzi, Hannaneh},
+  title   = {{Self-RAG}: Learning to Retrieve, Generate, and Critique through Self-Reflection},
+  journal = {arXiv preprint arXiv:2310.11511},
+  year    = {2023},
+
+}
+
+@article{jiang2023active,
+  author  = {Jiang, Zhengbao and Xu, Frank F. and Gao, Luyu and Sun, Zhiqing and Liu, Qian and Dwivedi-Yu, Jane and Yang, Yiming and Callan, Jamie and Neubig, Graham},
+  title   = {Active Retrieval Augmented Generation},
+  journal = {arXiv preprint},
+  year    = {2023},
+
+}
+
+@article{gao2024retrieval,
+  author  = {Gao, Yunfan and Xiong, Yun and Gao, Xinyu and Jia, Kangxiang and Pan, Jinliu and Bi, Yuxi and Dai, Yi and Sun, Jiaming and Wang, Haofen and Wang, Sujian},
+  title   = {Retrieval-Augmented Generation for Large Language Models: A Survey},
+  journal = {arXiv preprint arXiv:2312.10997},
+  year    = {2024},
+
+}
+
+@article{gehman2020realtoxicityprompts,
+  author  = {Gehman, Samuel and Gururangan, Suchin and Sap, Maarten and Choi, Yejin and Smith, Noah A.},
+  title   = {{RealToxicityPrompts}: Evaluating Neural Toxic Degeneration in Language Models},
+  journal = {Findings of EMNLP},
+  year    = {2020},
+
+}
+
+@article{schick2021debiasing,
+  author  = {Schick, Timo and Udupa, Sahana and Sch{\"u}tze, Hinrich},
+  title   = {Self-Diagnosis and Self-Debiasing: A Proposal for Reducing Corpus-Based Bias in {NLP}},
+  journal = {Transactions of the Association for Computational Linguistics},
+  year    = {2021},
+
+}
+
+@inproceedings{guo2017calibration,
+  author    = {Guo, Chuan and Pleiss, Geoff and Sun, Yu and Weinberger, Kilian Q.},
+  title     = {On Calibration of Modern Neural Networks},
+  booktitle = {Proceedings of the 34th International Conference on Machine Learning},
+  year      = {2017},
+
+}
+
+@article{kadavath2022language,
+  author  = {Kadavath, Saurav and Conerly, Tom and Askell, Amanda and Henighan, Tom and Drain, Dawn and Perez, Ethan and Schiefer, Nicholas and Hatfield-Dodds, Zac and DasSarma, Nova and Tran-Johnson, Eli and others},
+  title   = {Language Models (Mostly) Know What They Know},
+  journal = {arXiv preprint arXiv:2207.05221},
+  year    = {2022},
+
+}
+
+@article{lin2022teach,
+  author  = {Lin, Stephanie and Hilton, Jacob and Evans, Owain},
+  title   = {Truthful{QA}: Measuring How Models Mimic Human Falsehoods},
+  journal = {Proceedings of ACL},
+  year    = {2022},
+
+}
+
+@article{liu2023lost,
+  author  = {Liu, Nelson F. and Lin, Kevin and Hewitt, John and Paranjape, Ashwin and Bevilacqua, Michele and Petroni, Fabio and Liang, Percy},
+  title   = {Lost in the Middle: How Language Models Use Long Contexts},
+  journal = {Transactions of the Association for Computational Linguistics},
+  year    = {2023},
+
+}
+
+@misc{wu2024memochat,
+  author       = {Lu, Junru and An, Siyu and Lin, Mingbao and Pergola, Gabriele and He, Yulan and Yin, Di and Sun, Xing and Wu, Yunsheng},
+  title        = {{MemoChat}: Tuning {LLMs} to Use Memos for Consistent Long-Range Open-Domain Conversation},
+  year         = {2023},
+  howpublished = {arXiv preprint arXiv:2308.08239},
+
+}
+
+% ============================================================================
+% Author's companion papers (de-anonymised; verified against OpenReview
+% metadata 2026-07-08)
+% ============================================================================
+
+@misc{liu2026memorycontagion,
+  author       = {Zhang, Yuhao},
+  title        = {Memory Contagion: Cross-Temporal Propagation of Evaluator Bias via Agent Memory},
+  howpublished = {arXiv preprint arXiv:2606.23195},
+  year         = {2026},
+
+}
+
+% --- Added by fix_p5_polish.py on 2026-07-10 to fill external anchors
+%     required by main.tex §1.3, §4 (Comparison with Memory Contagion), and §5.
+
+@misc{bertalanic2026cost,
+  author  = {Bertalani\v{c}, B. and Fortuna, C.},
+  title   = {The Cost of Consensus: Isolated Self-Correction Prevails Over Unguided Homogeneous Multi-Agent Debate},
+  year    = {2026},
+  eprint  = {2605.00914},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  howpublished  = {arXiv preprint},
+}
+
+@misc{huang2026cagecal,
+  author  = {Huang, J. and Li, M. and Li, Z. and Kwon, S. and Yu, H. and Zhang, C.},
+  title   = {Counterfactual Graph for Multi-Agent LLM Calibration (CAGE-Cal)},
+  year    = {2026},
+  eprint  = {2605.30653},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  howpublished  = {arXiv preprint},
+}
+
+% --- appended by research_radar v2 (LLM 8-9/10) on 2026-07-08 ---
+@misc{bay2026sampling,
+  author        = {Yong Yi Bay and Kathleen A. Yearick},
+  title         = {When More Sampling Hurts: The Modal Ceiling and Correlation Ceiling of Test-Time Scaling},
+  year          = {2026},
+  eprint        = {2606.28661},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  abstract      = {People overthink; language models over-sample, and the extra effort can talk both into a worse answer. Reasoning systems answer a hard question by sampling it many times (test-time scaling), and the more they draw, the more often a correct answer turns up somewhere, so coverage, the fraction of prob},
+  howpublished  = {arXiv preprint},
+}
+
+@misc{liang2026mirage,
+  author        = {Jing Liang and Hongyao Tang and Yi Ma and Yancheng He and Weixun Wang and Xiaoyang Li and Ju Huang and Wenbo Su and Jinyi Liu and Yan Zheng and Jianye Hao and Bo Zheng},
+  title         = {The Mirage of Optimizing Training Policies: Monotonic Inference Policies as the Real Objective for LLM Reinforcement Learning},
+  year          = {2026},
+  eprint        = {2606.29526},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  abstract      = {Reinforcement learning (RL) has gained growing attention in large language model (LLM) post-training, yet RL training remains fragile and can suffer from instability or collapse. One vital cause is training-inference mismatch: LLM adopts separate inference and training engines for generation efficie},
+  howpublished  = {arXiv preprint},
+}
+
+@misc{hao2026tooluse,
+  author        = {Yupu Hao and Zhuoran Jin and Huanxuan Liao and Kang Liu and Jun Zhao},
+  title         = {Why Multi-Step Tool-Use Reinforcement Learning Collapses and How Supervisory Signals Fix It},
+  year          = {2026},
+  eprint        = {2606.26027},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  abstract      = {Tool use enables large language models (LLMs) to perform complex tasks, and recent agentic reinforcement learning (RL) methods show promise for enhancing model capabilities. However, RL alone often leads to instability or limited gains in tool-use tasks. In our experiments, some models exhibit catas},
+  howpublished  = {arXiv preprint (Chinese Academic of Science Institute of Automation)},
+}
+
+@misc{xu2026trek,
+  author        = {Yuanda Xu and Zhengze Zhou and Kayhan Behdin and Jelena Markovic-Voronov and Hejian Sang and Xiaomin Li and Wenhui Zhu and Xinchen Du and Aida Rahmattalabi and Ran He and Sen Na and Zhipeng Wang and Alborz Geramifard},
+  title         = {TREK: Distill to Explore, Reinforce to Refine},
+  year          = {2026},
+  eprint        = {2607.05339},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  abstract      = {Group Relative Policy Optimization (GRPO) is effective when the current policy already samples useful reasoning trajectories, but it stalls on hard prompts whose correct solution modes lie outside the student's on-policy support. We propose TREK (Teacher-Routed Exploration via Forward KL), a simple },
+  howpublished  = {arXiv preprint},
+}
+
+% v2: bounded-memory testbed — appended by P5 patch
+@misc{cheng2026agenticsts,
+  author        = {Xiangchen Cheng and Yunwei Jiang and Jianwen Sun and Zizhen Li and Chuanhao Li and Xiangcheng Cao and Yihao Liu and Fanrui Zhang and Li Jin and Kaipeng Zhang},
+  title         = {AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents},
+  year          = {2026},
+  eprint        = {2607.02255},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  howpublished  = {arXiv preprint (Alaya Studio)},
+}
+
+% --- appended by research_2026-07-23 (refs.bib merged additions) on 2026-07-23 ---
+% Source: .obsidian/<LOCAL_BIB>/references.bib
+% Reason: main.tex \bibliography{refs} reads this file directly.
+% All entries are arXiv preprints, WebFetch-verified 2026-07-23.
+
+@misc{wu2023autogen,
+  title     = {AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation},
+  author    = {Wu, Qingyun and Bansal, Gagan and Zhang, Jieyu and Wu, Yiran and Li, Beibin and Zhu, Erkang and Jiang, Li and Zhang, Xiaoyun and Zhang, Shaokun and Liu, Jiale and Awadallah, Ahmed Hassan and White, Ryen W and Burger, Doug and Wang, Chi},
+  year      = {2023},
+  eprint    = {2308.08155},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI}
+}
+
+@misc{hammond2025multirisks,
+  title     = {Multi-Agent Risks from Advanced AI},
+  author    = {Hammond, Lewis and Chan, Alan and Clifton, Jesse and Hoelscher-Obermaier, Jason and Khan, Akbir and McLean, Euan and Smith, Chandler and Barfuss, Wolfram and Foerster, Jakob and Gaven{\v{c}}iak, Tom{\'a}{\v{s}} and Han, The Anh and Hughes, Edward and Kova{\v{r}}{\'\i}k, Vojt{\v{e}}ch and Kulveit, Jan and Leibo, Joel Z. and Oesterheld, Caspar and Schroeder de Witt, Christian and Shah, Nisarg and Wellman, Michael and Bova, Paolo and Cimpeanu, Theodor and Ezell, Carson and Feuillade-Montixi, Quentin and Franklin, Matija and Kran, Esben and Krawczuk, Igor and Lamparth, Max and Lauffer, Niklas and Meinke, Alexander and Motwani, Sumeet and Reuel, Anka and Conitzer, Vincent and Dennis, Michael and Gabriel, Iason and Gleave, Adam and Hadfield, Gillian and Haghtalab, Nika and Kasirzadeh, Atoosa and Krier, S{\'e}bastien and Larson, Kate and Lehman, Joel and Parkes, David C. and Piliouras, Georgios and Rahwan, Iyad},
+  year      = {2025},
+  eprint    = {2502.14143},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.MA}
+}
+
+@misc{reid2025riskmulti,
+  title     = {Risk Analysis Techniques for Governed LLM-based Multi-Agent Systems},
+  author    = {Reid, Alistair and O'Callaghan, Simon and Carroll, Liam and Caetano, Tiberio},
+  year      = {2025},
+  eprint    = {2508.05687},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.MA}
+}
+
+@misc{hong2023metagpt,
+  title     = {MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework},
+  author    = {Hong, Sirui and Zhuge, Mingchen and Chen, Jiaqi and Zheng, Xiawu and Cheng, Yuheng and Zhang, Ceyao and Wang, Jinlin and Wang, Zili and Yau, Steven Ka Shing and Lin, Zijuan and Zhou, Liyang and Ran, Chenyu and Xiao, Lingfeng and Wu, Chenglin and Schmidhuber, J{\"u}rgen},
+  year      = {2023},
+  eprint    = {2308.00352},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI}
+}
+
+@misc{geminiteam2024gemini15,
+  title     = {Gemini 1.5: Unlocking Multimodal Understanding across Millions of Tokens of Context},
+  author    = {{Gemini Team Google} and Georgiev, Petko and others},
+  year      = {2024},
+  eprint    = {2403.05530},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL}
+}
+
+@misc{liu20251bsurpass,
+  title     = {Can 1B LLM Surpass 405B LLM? Rethinking Compute-Optimal Test-Time Scaling},
+  author    = {Liu, Runze and Gao, Junqi and Zhao, Jian and Zhang, Kaiyan and Li, Xiu and Qi, Biqing and Ouyang, Wanli and Zhou, Bowen},
+  year      = {2025},
+  eprint    = {2502.06703},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL}
+}
+
+% ============================================================
+% AXIS D: N-Sensitivity
+% ============================================================
+% (Vendrow 2025, Kim 2026, Sheng 2025 already in AXIS B)
+
+% ============================================================
+% AXIS A foundational / classic
+% ============================================================
+
+@misc{sheng2025conformal,
+  title     = {Analyzing Uncertainty of LLM-as-a-Judge: Interval Evaluations with Conformal Prediction},
+  author    = {Sheng, Huanxin and Liu, Xinyi and He, Hangfeng and Zhao, Jieyu and Kang, Jian},
+  year      = {2025},
+  eprint    = {2509.18658},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL}
+}
+
+% ============================================================
+% AXIS B: Calibration & Reliability
+% ============================================================
+
+@misc{lai2026biasscope,
+  title     = {BiasScope: Towards Automated Detection of Bias in LLM-as-a-Judge Evaluation},
+  author    = {Lai, Peng and Ou, Zhihao and Wang, Yong and Wang, Longyue and Yang, Jian and Chen, Yun and Chen, Guanhua},
+  year      = {2026},
+  eprint    = {2602.09383},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL}
+}
+
+@misc{yao2022react,
+  title     = {ReAct: Synergizing Reasoning and Acting in Language Models},
+  author    = {Yao, Shunyu and Zhao, Jeffrey and Yu, Dian and Du, Nan and Shafran, Izhak and Narasimhan, Karthik and Cao, Yuan},
+  year      = {2022},
+  eprint    = {2210.03629},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL}
+}
+
+@misc{wang2024rethinking,
+  title     = {Rethinking the Bounds of LLM Reasoning: Are Multi-Agent Discussions the Key?},
+  author    = {Wang, Qineng and Wang, Zihao and Su, Ying and Tong, Hanghang and Song, Yangqiu},
+  year      = {2024},
+  eprint    = {2402.18272},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL}
+}

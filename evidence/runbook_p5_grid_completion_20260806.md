@@ -13,7 +13,7 @@
 > 先完成 `osf_forms/OSF_registration_P5_bc.md` 的 OSF 提交，再执行本手册。结果产出前不更改以下任何参数。
 
 ## 环境
-- 工作目录：`F:\Research\PAPER5_CONSOLIDATED`
+- 工作目录：`<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED`
 - 密钥（环境变量，禁止写入文件）：`DEEPSEEK_API_KEY`（DeepSeek V4-Chat）、`QWEN_API_KEY`（如需要）、`OPENAI_API_KEY`（外部裁判）
 - 模型快照：DeepSeek V4-Chat（以提交时协议解析为准，冻结于执行前）
 
@@ -25,11 +25,11 @@
 - 执行（本地根目录入口）：
 ```powershell
 $env:PYTHONIOENCODING='utf-8'; $env:PYTHONUTF8='1'
-Set-Location 'F:\Research\PAPER5_CONSOLIDATED'
+Set-Location '<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED'
 python run_protocol.py --fresh --family deepseek_authority   # 需要 $env:DEEPSEEK_API_KEY
 python scoring/gamma_monitor.py --input outputs/protocol_run.jsonl
 ```
-- 产出：每格 `{model}__{arch}__authority__p{rate}__s{seed}.jsonl`（追加进 `tmp/windows/w1-paper5/data/logs/` 或协议指定位置）+ 合并 `outputs/protocol_run.jsonl` + `outputs/protocol_run_summary.json`。
+- 产出：每格 `{model}__{arch}__authority__p{rate}__s{seed}.jsonl`（追加进 `tmp<LOCAL_TMP>/windows/w1-paper5/data/logs/` 或协议指定位置）+ 合并 `outputs/protocol_run.jsonl` + `outputs/protocol_run_summary.json`。
 - 预算：≈5,400 调用 ≈ $1.5–2；墙钟 60–90 分钟（3 workers）。
 - 停止规则：单格连续 API 失败 >10 次 → 暂停并报告；预算超限 → 停止。
 
@@ -37,7 +37,7 @@ python scoring/gamma_monitor.py --input outputs/protocol_run.jsonl
 - 输入：`outputs/recomputed_cell_means_FIXED.json`（12 格 × 10 seeds）。
 - 冻结审计（BH 族校正 + 排序 + n3/n10 对比）：
 ```powershell
-python 'C:\Users\Administrator\AppData\Roaming\haolo_desktop\thread-groups\default\科研\outputs\five_paper_acceptance_baseline_20260806\scripts\analyze_p5.py'
+python '<WORKSPACE>\thread-groups\default\科研\outputs\five_paper_acceptance_baseline_20260806\scripts\analyze_p5.py'
 ```
 - 产出：`analyses/p5_robustness.json`（族审计 + 交互模型）；n3/n10 排序对照见 `analyses/heldout_validations_20260806.json` → `P4_decision_rule_Qwen_n3_vs_n10`。
 - 判定：Kendall(n3, n10) ≥ 0.8 → 正文升级为 n=10；<0.8 → 按 n=10 改写结论并在正文报告排序不稳定性。
@@ -62,7 +62,7 @@ python 'C:\Users\Administrator\AppData\Roaming\haolo_desktop\thread-groups\defau
 - **P5 authority 0.2/0.5 补格：BLOCKED（harness 缺失）**：Round-3 实况采集 harness（R3 日志生成器）不在本地任何仓库；`memory_architecture` 是 R1 配置（AGENTS=3、模型 deepseek-chat 已不在充值账户模型列表，仅 deepseek-v4-flash/v4-pro）且 schema 与 R3 不一致，**不能伪跑冒充补格**。维持 p=0.8 已完成结论；0.2/0.5 待原 harness 或重建授权。
 
 ## 方案 A 执行记录（2026-08-06 21:40）
-- **R3 harness 已重建并冻结**：`F:\Research\PAPER5_CONSOLIDATED\run_grid_v4flash.py`（SHA-256 `A871A93676BCC44C…`）。
+- **R3 harness 已重建并冻结**：`<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\run_grid_v4flash.py`（SHA-256 `A871A93676BCC44C…`）。
   - 提示词/偏置/引用/语料严格取自 protocol.md §4；T=10（与 R3 归档一致）；模型 deepseek-v4-flash；温度 0；max_tokens 512；Summarization 用 §4.4 摘要压缩；RAG 手工 TF-IDF + θ=0.1；偏置施加于 biased agent 输出（与 legacy/R3 日志格式一致）。
   - **偏差**：重建 harness + 新模型（v4-flash）替代 v4-pro 原网格；T=10 而非协议 Face-1 的 30。
 - **全网格已启动**：18 格（length+authority × 0.2/0.5/0.8 × 3 arch）× 10 seeds × 10 rounds，8 进程并行（pids.txt），预计 2.5–3 小时；每格完成即写 `outputs/grid_v4flash/*.jsonl`（可断点续跑）。

@@ -4,8 +4,8 @@ import json, math, os, random, statistics as st
 from collections import defaultdict
 from itertools import combinations
 
-OUT = r"C:\Users\Administrator\AppData\Roaming\haolo_desktop\thread-groups\default\科研\outputs\five_paper_acceptance_baseline_20260806\analyses"
-CELLS = r"F:\Research\PAPER5_CONSOLIDATED\outputs\recomputed_cell_means_FIXED.json"
+OUT = r"<WORKSPACE>\thread-groups\default\科研\outputs\five_paper_acceptance_baseline_20260806\analyses"
+CELLS = r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\recomputed_cell_means_FIXED.json"
 
 def betacf(a,b,x,itmax=200,eps=3e-12):
     qab=a+b; qap=a+1.0; qam=a-1.0
@@ -198,11 +198,11 @@ result["interaction_permutation_model_x_arch"] = {
 
 # ---------- 3. existing sensitivity evidence ----------
 import csv
-rows_csv = list(csv.DictReader(open(r"F:\Research\PAPER5_CONSOLIDATED\outputs\meta_analysis_three_rounds.csv", encoding="utf-8")))
+rows_csv = list(csv.DictReader(open(r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\meta_analysis_three_rounds.csv", encoding="utf-8")))
 dose = [r for r in rows_csv if r["round"]=="R1_dose_response" and r["note"]=="dose-response"]
-trend = list(csv.DictReader(open(r"F:\Research\PAPER5_CONSOLIDATED\outputs\meta_analysis_trend.csv", encoding="utf-8")))
-theta = json.load(open(r"F:\Research\PAPER5_CONSOLIDATED\outputs\theta_sweep_summary.json", encoding="utf-8"))
-judge = json.load(open(r"F:\Research\PAPER5_CONSOLIDATED\outputs\external_judge_summary.json", encoding="utf-8"))
+trend = list(csv.DictReader(open(r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\meta_analysis_trend.csv", encoding="utf-8")))
+theta = json.load(open(r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\theta_sweep_summary.json", encoding="utf-8"))
+judge = json.load(open(r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\external_judge_summary.json", encoding="utf-8"))
 result["existing_sensitivity_evidence"] = {
   "dose_response_deepseek_chat_length": [{"arch": r["arch"], "p": r["p"], "mean_gamma": round(float(r["mean"]),4), "sem": float(r["sem"])} for r in dose],
   "dose_trend_slopes": [{"arch": r["arch"], "slope": float(r["slope"]), "p_slope": ("<0.001" if float(r["p_slope"]) < 0.001 else round(float(r["p_slope"]), 4))} for r in trend],

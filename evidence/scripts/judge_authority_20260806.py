@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 BASE = os.environ["BASE"]
 A = os.path.join(BASE, "analyses")
-R3 = r"C:\Users\Administrator\AppData\Roaming\haolo_desktop\thread-groups\default\outputs\paper5_round3_live_logs_20260713"
+R3 = r"<WORKSPACE>\thread-groups\default\outputs\paper5_round3_live_logs_20260713"
 URL = os.environ.get("OPENAI_BASE_URL", "https://aiapi.youleai.top/v1").rstrip("/") + "/chat/completions"
 KEY = os.environ.get("OPENAI_API_KEY", "")
 MODEL = "gpt-5.4-mini"
@@ -58,7 +58,7 @@ with ThreadPoolExecutor(max_workers=6) as ex:
 json.dump(recs, open(os.path.join(A, "p5_authority_judgments_20260806.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 # aggregate: per-cell authority rate (biased vs clean), seed-level correlation with gamma
-CELLS = json.load(open(r"F:\Research\PAPER5_CONSOLIDATED\outputs\recomputed_cell_means_FIXED.json", encoding="utf-8"))
+CELLS = json.load(open(r"<ARCHIVE_ROOT>\PAPER5_CONSOLIDATED\outputs\recomputed_cell_means_FIXED.json", encoding="utf-8"))
 def parse(k):
     model = "deepseek-v4-pro" if k.startswith("deepseek-v4-pro") else "qwen3.7-plus"
     rest = k[len(model)+1:]
