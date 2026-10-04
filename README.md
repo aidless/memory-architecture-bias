@@ -1,4 +1,5 @@
 # PAPER5 — Memory-Architecture Contamination under TTRL (anonymous, available at acceptance)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  [![Data](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE)
 
 Repository for the paper "Memory-Architecture Bias Propagation under Controlled Contamination"
 (anonymous for double-blind review; final identity released at acceptance).
@@ -38,3 +39,13 @@ All random processes use fixed seeds; outputs are deterministic.
 - `evidence/evidence_manifest.json` lists SHA-256 for every delivered file.
 - Acceptance gates: `run_acceptance_gates_R14.py` in the submission package (exit 0).
 - License: MIT.
+
+## License
+
+Code is MIT-licensed ([LICENSE](LICENSE)). Paper 5 (memory architectures) releases the logs and evidence archives under `evidence/` under
+[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+
+GitHub's license detector reports this repository as `NOASSERTION` because it reads
+a single SPDX id per repository and this one carries two. The split is deliberate:
+the code stays permissively licensed so it can be reused, and the research material
+stays attributable so a citation is required.
