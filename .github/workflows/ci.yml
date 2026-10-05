@@ -66,7 +66,10 @@ jobs:
           src = pathlib.Path("source/verify_p5.py").read_text()
           src = src.replace("ROOT = Path('F:/Research/PAPER5_CONSOLIDATED')",
                             "ROOT = Path('source')")
-          assert "F:/Research" not in src, "the ROOT override did not apply"
+          # Only the ROOT constant must be free of the local path; the module
+          # docstring legitimately mentions F:/Research/PAPER<N>_CONSOLIDATED/ as the
+          # template workflow, so a blanket "not in src" assertion always fails.
+          assert "ROOT = Path('source')" in src, "the ROOT override did not apply"
           exec(compile(src, "source/verify_p5.py", "exec"),
                {"__name__": "__main__", "__file__": "source/verify_p5.py"})
           PY
