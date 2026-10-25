@@ -2,21 +2,26 @@
 
 Three rounds, distinct purposes:
   R1 dose-response (V4-Chat, T=30, 3 rates):
-    F:\\Research\\memory_architecture\\experiments\\results\\dose_response.json
+    dose_response.json  (path set in DATA_DIR below)
     → 9 cells (3 archs × 3 rates × 10 seeds)
     → used as prior for trend analysis
   R2 R2 backup (V4-Chat, T=30, p=0.8 only):
-    F:\\Research\\memory_architecture\\experiments\\results\\full_30r_10s.json
+    full_30r_10s.json  (path set in DATA_DIR below)
     → 3 cells (3 archs × p=0.8 × 10 seeds) — independent re-run
     → cross-run consistency check
   R3 confirmatory (V4-Pro + Qwen3.7-Plus, T=10, p=0.8):
-    C:\\Users\\...\\haolo_desktop\\...\\paper5_round3_live_logs_20260713
+    paper5_round3_live_logs_20260713/  (flat per-cell JSONL; the archived copy
+    of these logs ships in the repository as evidence/paper5_round3_live_logs.zip)
     → 12 cells (3 archs × 2 bias types × 2 models × 10 seeds)
     → confirmatory test
 
 Outputs:
   outputs/meta_analysis_three_rounds.csv  — per-cell round-by-round summary
   outputs/meta_analysis_trend.csv          — V4-Chat dose-response trend (R1)
+
+All input/output locations are resolved relative to this script's directory
+(ROOT); the R1/R2 result files were produced on the author's local workspace
+and are not tracked in the repository.
 """
 from __future__ import annotations
 import json
@@ -27,6 +32,11 @@ from collections import defaultdict
 
 import numpy as np
 from scipy.stats import wasserstein_distance, chi2
+
+ROOT = Path(__file__).resolve().parent
+# Directory holding the R1/R2 result files (dose_response.json,
+# full_30r_10s.json). Not tracked in the repository.
+DATA_DIR = ROOT / "experiments" / "results"
 
 
 def gamma_per_file(fp: Path) -> float | None:
@@ -73,8 +83,8 @@ def load_r1_dose_response() -> dict:
     """
     cells = defaultdict(list)
     sources = [
-        Path(r"F:\Research\memory_architecture\experiments\results\dose_response.json"),
-        Path(r"F:\Research\memory_architecture\experiments\results\full_30r_10s.json"),
+        DATA_DIR / "dose_response.json",
+        DATA_DIR / "full_30r_10s.json",
     ]
     for fp in sources:
         if not fp.exists():
@@ -101,7 +111,9 @@ def load_r2_backup() -> dict:
 
 def load_r3_confirmatory() -> dict:
     """R3: V4-Pro + Qwen3.7-Plus, p=0.8, 2 bias types × 3 archs × 10 seeds."""
-    log_root = Path(r"C:\Users\Administrator\AppData\Roaming\haolo_desktop\thread-groups\default\outputs\paper5_round3_live_logs_20260713")
+    # Flat per-cell JSONL directory; the archived copy ships in the repository
+    # as evidence/paper5_round3_live_logs.zip (unzip it here to recompute R3).
+    log_root = ROOT / "paper5_round3_live_logs_20260713"
     cells = defaultdict(list)
     if not log_root.exists():
         return cells
@@ -178,7 +190,7 @@ def main():
         print(f"{arch:<20} {s02['mean']:<12.3f} {s05['mean']:<12.3f} {s08['mean']:<12.3f} {slope:<+10.4f} {p_slope:<10.3f}")
 
     # Save trend
-    out_dir = Path(r"F:\Research\PAPER5_CONSOLIDATED\outputs")
+    out_dir = ROOT / "outputs"
     out_dir.mkdir(parents=True, exist_ok=True)
     with (out_dir / "meta_analysis_trend.csv").open("w", encoding="utf-8") as f:
         f.write("arch,p02_mean,p05_mean,p08_mean,slope,p_slope,n02,n05,n08\n")

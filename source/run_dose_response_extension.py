@@ -206,7 +206,9 @@ if __name__ == "__main__":
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--cells", default="0.5,0.2",
                         help="comma-separated contamination rates")
-    parser.add_argument("--out-dir", default=r"C:\Users\Administrator\AppData\Roaming\haolo_desktop\thread-groups\default\outputs\paper5_dose_response_extension_20260714")
+    parser.add_argument("--out-dir", default="outputs/paper5_dose_response_extension_20260714",
+                        help="output directory (relative paths resolve against the "
+                             "current working directory)")
     args = parser.parse_args()
     if not args.api_key:
         print("Error: --api-key or DASHSCOPE_API_KEY env required", file=sys.stderr)

@@ -60,8 +60,8 @@ def output_lengths(rows: list[dict]) -> np.ndarray:
     per protocol §4.5.
 
     The ``response_text`` field is the canonical Round-3 schema field
-    and is checked first because the Round-3 live logs (under
-    ``C:/Users/Administrator/AppData/Roaming/haolo_desktop/...``) emit
+    and is checked first because the Round-3 live logs (archived in the
+    repository as ``evidence/paper5_round3_live_logs.zip``) emit
     provider-attributed rows with this key; the older pilot/R2 harnesses
     emitted ``output_text`` / ``summary`` / ``text`` depending on the
     summarizer integration.

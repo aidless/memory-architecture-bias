@@ -3,12 +3,14 @@
 
 This is the GENERIC TEMPLATE. To use:
 
-    1. Copy this file to F:/Research/PAPER<N>_CONSOLIDATED/_verify_p<N>.py
-    2. Edit the `ROOT` constant.
+    1. Copy this file into the paper's consolidated workspace directory as
+       _verify_p<N>.py
+    2. Edit the `ROOT` constant (by default it is the directory containing
+       this script; point it at the folder holding main.tex / refs.bib).
     3. Edit the `CHECKS_CONFIG` block to match the paper.
 
-Or, run `python gen_verify_scripts.py --paper N` from
-F:/Research/TEMPLATE/ to fork this template automatically.
+Or, run `python gen_verify_scripts.py --paper N` from the audit-template
+workspace to fork this template automatically.
 
 The seven categories of checks are:
 
@@ -62,7 +64,7 @@ from pathlib import Path
 # ============================================================================
 # Configuration (only this block needs editing per paper)
 # ============================================================================
-ROOT = Path('F:/Research/PAPER5_CONSOLIDATED')
+ROOT = Path(__file__).resolve().parent
 MAIN = ROOT / 'main.tex'
 REFS = ROOT / 'refs.bib'
 

@@ -91,33 +91,22 @@ jobs:
                   print("        numbers are not the same object.")
           PY
       - name: Recompute the paper-5 claim from the stored evidence
-        # source/verify_p5.py:65 hardcodes ROOT = Path('F:/Research/PAPER5_CONSOLIDATED'),
-        # a path on the author's machine. The paper source it needs is tracked here as
-        # source/main.tex and source/refs.bib, so this runs the same checks against
-        # source/ by rewriting only that one constant at load time — the file on disk
-        # is untouched. Verified locally: 4 LOW findings, HIGH=0, MEDIUM=0, exit 0.
+        # source/verify_p5.py resolves ROOT relative to its own location
+        # (previously it hardcoded a path on the author's machine, which this
+        # step had to rewrite at load time). The paper source it needs is
+        # tracked here as source/main.tex and source/refs.bib, so running the
+        # script directly is enough. Expected: 4 LOW findings, HIGH=0,
+        # MEDIUM=0, exit 0.
         run: |
           python -m pip install --upgrade pip
           pip install numpy scipy
-          python - <<'PY'
-          import pathlib, sys
-          src = pathlib.Path("source/verify_p5.py").read_text()
-          src = src.replace("ROOT = Path('F:/Research/PAPER5_CONSOLIDATED')",
-                            "ROOT = Path('source')")
-          # Only the ROOT constant must be free of the local path; the module
-          # docstring legitimately mentions F:/Research/PAPER<N>_CONSOLIDATED/ as the
-          # template workflow, so a blanket "not in src" assertion always fails.
-          assert "ROOT = Path('source')" in src, "the ROOT override did not apply"
-          exec(compile(src, "source/verify_p5.py", "exec"),
-               {"__name__": "__main__", "__file__": "source/verify_p5.py"})
-          PY
+          python source/verify_p5.py
 
-      - name: Report the hardcoded ROOT as a warning
+      - name: Guard against hardcoded local paths
         shell: bash
         run: |
           if grep -q "F:/Research" source/verify_p5.py; then
-            echo "::warning::source/verify_p5.py hardcodes ROOT to a path outside"
-            echo "::warning::this repository; CI overrides it at load time."
+            echo "::warning::source/verify_p5.py contains a hardcoded local path."
           fi
           echo "OK (advisory only)"
 
@@ -137,13 +126,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # Same load-time ROOT override the verify job uses, so both jobs run the
-          # identical check against source/main.tex and source/refs.bib.
+          # Run the same check as the verify job, against source/main.tex and
+          # source/refs.bib (ROOT is resolved relative to the script itself).
           cat > /tmp/verify_p5_run.py <<'RUNNER'
           import pathlib
           src = pathlib.Path("source/verify_p5.py").read_text()
-          src = src.replace("ROOT = Path('F:/Research/PAPER5_CONSOLIDATED')",
-                            "ROOT = Path('source')")
           exec(compile(src, "source/verify_p5.py", "exec"),
                {"__name__": "__main__", "__file__": "source/verify_p5.py"})
           RUNNER

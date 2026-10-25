@@ -39,7 +39,10 @@ from scoring import bootstrap_ci  # noqa: E402
 
 OUT_DIR = ROOT / "tmp" / "windows" / "w1-paper5" / "data" / "logs" / "judge"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
-ALT_OUT_DIR = Path(r"C:\Users\Administrator\cow\tmp\windows\w1-paper5\data\logs\judge")
+# Secondary cache consulted when a judge JSONL is not in OUT_DIR. Historically
+# this pointed at a per-machine absolute path on the author's workstation; it
+# is now resolved relative to the repository checkout.
+ALT_OUT_DIR = ROOT / "cow" / "tmp" / "windows" / "w1-paper5" / "data" / "logs" / "judge"
 ALT_OUT_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUTS = ROOT / "outputs"
 OUTPUTS.mkdir(parents=True, exist_ok=True)
@@ -128,9 +131,11 @@ def _existing_jsonl_paths(condition_id: str, seed_id: int) -> tuple[Path | None,
     """Find the existing JSONL files for one cell × seed.
 
     Same convention as run_protocol.py: live JSONL lives in the cow
-    workspace under qwen_n10/ or deepseek_authority/.
+    workspace under qwen_n10/ or deepseek_authority/. Resolved relative to
+    this script's directory; the original collection ran in the author's
+    local cow workspace.
     """
-    cow_root = Path(r"C:\Users\Administrator\cow\tmp\windows\w1-paper5\data\logs")
+    cow_root = ROOT / "cow" / "tmp" / "windows" / "w1-paper5" / "data" / "logs"
     for subdir in ("deepseek_authority", "qwen_n10"):
         candidate = cow_root / subdir / f"{condition_id}_s{seed_id}.jsonl"
         if candidate.exists():
