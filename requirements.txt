@@ -1,0 +1,6 @@
+# Dependency manifest pointer for aidless/memory-architecture-bias
+#
+# The real manifest lives in source/. This root file exists so tooling and readers
+# find an entry point without duplicating (and drifting from) the nested list.
+
+-r source/requirements.txt
