@@ -146,8 +146,15 @@ class CorpusTests(unittest.TestCase):
         if CORPUS_PATH.exists():
             CORPUS_PATH.unlink()
         try:
-            p1 = load_passages()
-            p2 = load_passages()
+            # prefer_real=False keeps this contract test offline-deterministic:
+            # the caching behaviour (first call materialises, second call reuses
+            # the on-disk JSONL) is what is being asserted, not which corpus
+            # source (real CNN/DM vs synthetic) is selected. When `datasets` is
+            # installed locally the default path would attempt a network download
+            # of cnn_dailymail and hang in a sandboxed/offline run; CI does not
+            # install `datasets`, so it naturally falls back to synthetic.
+            p1 = load_passages(prefer_real=False)
+            p2 = load_passages(prefer_real=False)
             self.assertEqual(len(p1), N_PASSAGES)
             self.assertEqual(len(p2), N_PASSAGES)
             # Cached — same ids and same text

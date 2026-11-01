@@ -35,6 +35,32 @@ DEEPSEEK_API_KEY=... python source/run_grid_v4flash.py --rounds 10 --seeds 10
 ```
 All random processes use fixed seeds; outputs are deterministic.
 
+## Test status
+
+```bash
+# Contract suite (offline-deterministic; needs pytest, numpy, scipy):
+python -m pytest source/tests/ -q
+```
+
+**Result on this tree (2026-11-01): 16 passed, 1 failed.** The single failure is
+`ConditionRegistryTests::test_canonical_count` — a **pre-existing, documented
+inconsistency**, not a regression: the test asserts 15 canonical conditions
+(`source/tests/test_reproduce_peer.py:58`) while
+`source/reproduce_peer/condition_registry.py:43` registers 18 canonical + 1
+sensitivity probe (the three extra are `D-A-AU`, `D-S-AU`, `D-R-AU`). CI
+deselects this test and reports the mismatch as a warning, because which number
+is correct is a research-design question that neither CI nor this polish pass
+changes. The remaining 16 tests (seed determinism, condition registry, gamma
+monitor, ECE/CI, corpus caching) all pass.
+
+`source/tests/test_reproduce_peer.py` `test_corpus_caches` calls
+`load_passages(prefer_real=False)`: the test's contract is the **caching**
+behaviour (first call materialises, second reuses the on-disk JSONL), not which
+corpus source is selected. When `datasets` is installed locally the default path
+would attempt a network download of `cnn_dailymail` and hang in an offline/sandboxed
+run; CI does not install `datasets`, so it falls back to synthetic. The explicit
+`prefer_real=False` keeps the contract test offline-deterministic on both paths.
+
 ## Environment
 - Python 3.12 (the version CI runs), dependencies in `source/requirements.txt`
   (`pip install -r source/requirements.txt`). `source/verify_p5.py` itself only
