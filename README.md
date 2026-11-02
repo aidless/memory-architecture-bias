@@ -21,6 +21,23 @@ Repository for the paper "Memory-Architecture Bias Propagation under Controlled 
   - `evidence_manifest.json` (SHA-256 of every file, self excluded)
   - preregistration chain (`OSF_registration_P5_bc.md`, `prereg_freeze_hashes.json`, `deviation_round4_k9_20260808.md`)
 
+## Benchmark (offline reproduction)
+
+`benchmarks/bench_reproduce.py` verifies that the reported per-cell Gamma tables
+are recomputable from the evidence shipped in this repository — no model call,
+no network, no retraining:
+
+```bash
+python benchmarks/bench_reproduce.py   # PASS (checks 2-6 all green)
+```
+
+It checks the R1 dose-response contrasts (n=90, 9 contrasts, df=9), the Round-4
+validation (1080 files = 36 cells x 30 seeds), the external-task replication,
+the full per-cell table, and the `verify_p5.py` 6-category TMLR audit (no
+HIGH/MEDIUM). A documented provenance note reports the true split between files
+still matching the frozen `evidence_manifest.json` and those recomputed after
+the freeze (see `benchmarks/README.md` for the honest accounting).
+
 ## Reproduction
 ```
 pip install -r source/requirements.txt
