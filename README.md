@@ -1,8 +1,14 @@
-# PAPER5 — Memory-Architecture Contamination under TTRL (anonymous, available at acceptance)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  [![Data](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE)
+# PAPER5 — Memory-Architecture Contamination under TTRL (public evidence snapshot)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  [![Data](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE-DATA)
 
 Repository for the paper "Memory-Architecture Bias Propagation under Controlled Contamination"
-(anonymous for double-blind review; final identity released at acceptance).
+(public evidence snapshot. The manuscript is kept anonymous; no author identity is embedded in this repository.)
+
+**What this is.** A frozen, offline-checkable evidence snapshot: 18-cell grid harness, protocol runners, analysis scripts and a verification suite, kept public so the reported numbers can be re-derived instead of trusted.
+
+**Verified how.** `python3 source/verify_p5.py` re-runs the 6-category manuscript audit (abstract symbols, Bonferroni families, formalization, citation hygiene, reproducibility) offline with no model calls; measured status today: 0 HIGH / 0 MEDIUM / 4 LOW. Every evidence file also carries a SHA-256 in `evidence/evidence_manifest.json`.
+
+**Run it.** `python3 source/verify_p5.py` (no install needed); full re-derivation needs `pip install -r source/requirements.txt`.
 
 ## Layout
 - `source/` — paper sources (main.tex) and the collection/analysis harness:
