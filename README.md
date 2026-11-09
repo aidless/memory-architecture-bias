@@ -1,4 +1,6 @@
 # PAPER5 — Memory-Architecture Contamination under TTRL (public evidence snapshot)
+
+[![CI](https://github.com/aidless/memory-architecture-bias/actions/workflows/ci.yml/badge.svg)](https://github.com/aidless/memory-architecture-bias/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  [![Data](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE-DATA)
 
 Repository for the paper "Memory-Architecture Bias Propagation under Controlled Contamination"
