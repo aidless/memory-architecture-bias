@@ -3,7 +3,7 @@
 External task: open-ended text generation (biased arm: expand with more detail).
 Models: qwen3.7-plus (Alibaba) vs deepseek-v4-flash (DeepSeek). 3 memory architectures x 10 seeds x 10 rounds.
 Q = architecture ranking by gamma (Summ vs Append direction)."""
-import os, json, random, re, time, statistics as st, math, sys, urllib.request, urllib.error, io
+import os, json, random, time, statistics as st, sys, urllib.request, urllib.error
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.dirname(HERE)

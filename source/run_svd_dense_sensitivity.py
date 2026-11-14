@@ -291,7 +291,7 @@ def write_report(summary: dict) -> None:
         "without affecting the headline paper claims.",
         "",
         "## Configuration",
-        f"- Architecture: RAG + Filter (dense)",
+        "- Architecture: RAG + Filter (dense)",
         f"- TruncatedSVD components: {summary['svd_components']}",
         f"- θ (relevance threshold): {summary['theta']}",
         f"- contamination rate p: {summary['p']}",
@@ -334,7 +334,7 @@ def main() -> int:
               file=sys.stderr)
         return 2
 
-    print(f"Loading corpus...")
+    print("Loading corpus...")
     passages = load_passages()
     print(f"  Loaded {len(passages)} passages")
 

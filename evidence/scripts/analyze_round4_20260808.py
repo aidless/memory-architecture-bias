@@ -3,7 +3,7 @@
 Input : paper5_round4_live_20260723 (1080 jsonl: 2 models x 3 arch x 2 bias x 3 rates x 30 seeds)
 Checks: file completeness, per-record schema, gamma computation (clean-normalized word-length W1).
 Output: analyses/round4_validation_20260808.json + printed mixed-model summary."""
-import os, json, re, statistics as st, collections, math, io
+import os, json, re, statistics as st, collections, math
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.dirname(HERE)

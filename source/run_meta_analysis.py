@@ -31,7 +31,7 @@ from pathlib import Path
 from collections import defaultdict
 
 import numpy as np
-from scipy.stats import wasserstein_distance, chi2
+from scipy.stats import wasserstein_distance
 
 ROOT = Path(__file__).resolve().parent
 # Directory holding the R1/R2 result files (dose_response.json,

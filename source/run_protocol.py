@@ -44,8 +44,7 @@ sys.path.insert(0, str(ROOT))
 
 from reproduce_peer import CONDITIONS, CONDITION_GROUPS  # noqa: E402
 from reproduce_peer.load_corpus import load_passages  # noqa: E402
-from reproduce_peer.seed_lock import seed_for  # noqa: E402
-from scoring import gamma_temporal, gamma_content, gamma_retrieval, ece  # noqa: E402
+from scoring import gamma_temporal, ece  # noqa: E402
 
 LOG_ROOT = ROOT / "tmp" / "windows" / "w1-paper5" / "data" / "logs"
 ALT_LOG_ROOT = Path(r"<LOCAL_TMP>\windows\w1-paper5\data\logs")

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """P5 cross-run drift: deepseek-v4-pro architecture ordering, Round-3 (10 seeds) vs Round-4 (30 seeds) @ p=0.8.
 Inputs: recomputed_cell_means_FIXED.json (Round-3), round4_validation_20260808.json (Round-4)."""
-import os, json, io
+import os, json
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.dirname(HERE)
 fixed = json.load(open(os.path.join(BASE, "recomputed_cell_means_FIXED.json"), encoding="utf-8"))

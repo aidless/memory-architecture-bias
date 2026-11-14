@@ -33,9 +33,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
-from reproduce_peer import seed_for, CONDITIONS, CONDITION_GROUPS  # noqa: E402
+from reproduce_peer import seed_for, CONDITIONS  # noqa: E402
 from reproduce_peer.load_corpus import load_passages  # noqa: E402
-from scoring import bootstrap_ci  # noqa: E402
 
 OUT_DIR = ROOT / "tmp" / "windows" / "w1-paper5" / "data" / "logs" / "judge"
 OUT_DIR.mkdir(parents=True, exist_ok=True)

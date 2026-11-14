@@ -3,7 +3,7 @@
 Summ-vs-Append @ p=0.8 length: direction and paired t on per-seed Gamma.
 Inputs: r1_v4chat_dose_response_per_seed.json (R1), recomputed_cell_means_FIXED.json (Qwen),
        round4_live.zip (v4-pro/v4-flash)."""
-import os, json, math, statistics as st, zipfile, io
+import os, json, math, statistics as st, zipfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.dirname(HERE)

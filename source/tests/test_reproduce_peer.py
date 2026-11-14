@@ -14,10 +14,8 @@ They exercise:
   - gamma_decomposition handles all three architectures
 """
 from __future__ import annotations
-import json
 import math
 import sys
-import tempfile
 import unittest
 from pathlib import Path
 
@@ -27,10 +25,10 @@ sys.path.insert(0, str(ROOT))
 from reproduce_peer import seed_for, CONDITIONS, CONDITION_GROUPS  # noqa: E402
 from reproduce_peer.condition_registry import get as get_condition  # noqa: E402
 from reproduce_peer.load_corpus import (  # noqa: E402
-    load_passages, CORPUS_PATH, N_PASSAGES, BASE_SEED as CORPUS_BASE_SEED,
+    load_passages, CORPUS_PATH, N_PASSAGES,
 )
 from scoring import (  # noqa: E402
-    gamma_temporal, gamma_content, gamma_retrieval, gamma_decomposition,
+    gamma_temporal, gamma_decomposition,
     ece, delta_ece, bootstrap_ci,
 )
 

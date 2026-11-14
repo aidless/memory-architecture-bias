@@ -47,7 +47,7 @@ def main():
                     help='only run the metadata checks, not the full table scans')
     args = ap.parse_args()
 
-    print(f'=== PAPER5 reproduction benchmark ===')
+    print('=== PAPER5 reproduction benchmark ===')
     print(f'root: {ROOT}')
     t0 = time.time()
     all_ok = True

@@ -1,6 +1,6 @@
 ﻿# -*- coding: utf-8 -*-
 """P5 authority-marker judge: convergent-validity check on Round-3 response texts (working OpenAI proxy)."""
-import os, json, re, sys, time, urllib.request, statistics as st
+import os, json, re, time, urllib.request, statistics as st
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 BASE = os.environ["BASE"]

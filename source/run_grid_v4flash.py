@@ -9,7 +9,7 @@ Deviations recorded 2026-08-06:
   - bias storage: entry injected with probability p, seeded per (cell, seed, idx)
 Output: outputs/grid_v4flash/{model}__{arch}__{bias}__p{rate}__s{seed}.jsonl
 """
-import os, sys, json, time, hashlib, argparse, random, math, urllib.request, urllib.error
+import os, json, time, hashlib, argparse, random, math, urllib.request, urllib.error
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DS_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
